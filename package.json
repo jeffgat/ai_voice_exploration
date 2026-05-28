@@ -1,0 +1,14 @@
+{
+  "name": "voice-agent-poc",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "npm run dev:backend & npm run dev:frontend & wait",
+    "dev:backend": "backend/.venv/bin/python -m backend.main",
+    "dev:frontend": "npm --prefix frontend run dev -- --port ${FRONTEND_PORT:-5173}",
+    "setup": "npm run setup:backend && npm run setup:frontend",
+    "setup:backend": "python3.11 -m venv backend/.venv && backend/.venv/bin/pip install -r backend/requirements.txt",
+    "setup:frontend": "npm --prefix frontend install",
+    "build": "npm --prefix frontend run build"
+  }
+}
